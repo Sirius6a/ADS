@@ -1,7 +1,4 @@
-package aula06;
-
-public class App {
-    import aula06.LinkedList;
+import aula06.LinkedList;
 
     void main() {
         var list = new LinkedList();
@@ -15,4 +12,3 @@ public class App {
         list.print();
 
     }
-}
