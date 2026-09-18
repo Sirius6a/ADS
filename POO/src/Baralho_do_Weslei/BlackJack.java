@@ -51,6 +51,10 @@ public class BlackJack {
         System.out.println("Pontos: "+pontos);
         System.out.println("Mão: ");
         System.out.println(mao);
+        if (pontos == 21) { // minha solução foi checar a vitória dentro do exibir_estado
+            System.out.println("Vitória!!!");
+            System.exit(0); // esse código funciona como um breaker
+        }
     }
 
 
@@ -71,10 +75,10 @@ public class BlackJack {
                 System.out.println("Você tem mais que 21. Você Perdeu");
                 break;
             }
-            if (pontos == 21){
-                System.out.println("Vitória!!!");
-                break;
-            }
+//            if (pontos == 21){
+//                System.out.println("Vitória!!!");
+//                break;
+//            }
         }
 
         System.out.println("Pontuação final: "+pontos);
