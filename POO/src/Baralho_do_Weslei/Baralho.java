@@ -1,3 +1,5 @@
+package Baralho_do_Weslei;
+
 import java.util.ArrayList;
 import java.util.Collections;
 

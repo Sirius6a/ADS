@@ -1,3 +1,5 @@
+package Baralho_do_Weslei;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -19,7 +21,7 @@ public class Main {
 
         System.out.println(L);
 
-//        for (Carta X : L){
+//        for (Baralho_do_Weslei.Carta X : L){
 //            X.mostrar();
 //        }
 

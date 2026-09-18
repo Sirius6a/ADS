@@ -1,3 +1,5 @@
+package IdentidadePessoa_aula_3;
+
 class Pessoa {
     String nome;
     int idade;
@@ -31,7 +33,7 @@ class Pessoa {
     }
 
     void Mostrar_dados() {
-        System.out.println("Pessoa de nome: "+nome+
+        System.out.println("IdentidadePessoa_aula_3.Pessoa de nome: "+nome+
                 "\nIdade: "+idade+" anos"+
                 "\nCPF: "+cpf+
                 "\nAltura: "+altura+

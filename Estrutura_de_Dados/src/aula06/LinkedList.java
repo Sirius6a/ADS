@@ -51,7 +51,15 @@ public class LinkedList {
     }
 
     public Node get(String data) {
-        // TODO
+        if (head == null) return null;
+        var temp = head;
+        while (temp != null) {
+            if (temp.data.equals(data)) {
+                return temp;
+            }
+            temp = temp.next;
+        }
+        return null;
     }
 
     public void removeEnd() {

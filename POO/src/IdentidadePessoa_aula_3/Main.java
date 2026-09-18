@@ -1,3 +1,5 @@
+package IdentidadePessoa_aula_3;
+
 public class Main {
     public static void main(String[] args) {
 //        Pessoa P; // declarando variavel tipo pessoa

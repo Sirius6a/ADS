@@ -1,3 +1,5 @@
+package IdentidadePessoa_aula_3;
+
 public class Fracao {
     int numerador;
     int denominador;
