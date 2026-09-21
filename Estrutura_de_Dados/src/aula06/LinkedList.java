@@ -80,4 +80,12 @@ public class LinkedList {
             temp = temp.next;
         }
     }
+
+    void print(Node n){ // recebe um no, imprime ele e outros nos aos quais o primeiro aponta
+        var temp = n;
+        while (temp != null) {
+            System.out.println(temp.data);
+            temp = temp.next;
+        }
+    }
 }
