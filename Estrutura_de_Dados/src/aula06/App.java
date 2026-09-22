@@ -11,7 +11,6 @@ public class App {
         System.out.println("\n--- TESTE 2: INSERÇÃO ---");
         fila.adicionarAlunoNoFim(new Aluno("Ana", "202401", 2));
         fila.adicionarAlunoNoFim(new Aluno("Bruno", "202402", 1));
-        // Carla entra direto no início da fila
         fila.adicionarAlunoNoInicio(new Aluno("Carla", "202403", 3));
 
         System.out.println("Fila atual:");
@@ -19,18 +18,18 @@ public class App {
         System.out.println("Quantidade em fila: " + fila.quantidadeAlunos());
 
         System.out.println("\n--- TESTE 3: ATENDIMENTO E REMOÇÃO ---");
-        fila.atenderProximo(); // Deve atender a Carla (primeira da fila)
+        fila.atenderProximo();
 
         System.out.println("\nRemovendo Bruno por desistência...");
-        fila.removerAluno("202402"); // Remove o Bruno do meio/fim da fila
+        fila.removerAluno("202402");
 
         System.out.println("\nFila resultante:");
-        fila.listarAlunos(); // Deve sobrar apenas a Ana
+        fila.listarAlunos();
         System.out.println("Quantidade em fila: " + fila.quantidadeAlunos());
 
         System.out.println("\n--- TESTE 4: BUSCA ---");
-        fila.buscarAluno("202401"); // Deve achar a Ana
-        fila.buscarAluno("999999"); // Teste de aluno inexistente
+        fila.buscarAluno("202401");
+        fila.buscarAluno("999999");
 
         System.out.println("\n--- TESTE 5: INSERÇÃO POR ÍNDICE ---");
         fila.adicionarAlunoPorIndice(0, new Aluno("Daniel", "202404", 1));

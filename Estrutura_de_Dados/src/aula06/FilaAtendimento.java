@@ -39,7 +39,6 @@ public class FilaAtendimento {
         }
     }
 
-    // falta implementar o search para funiconar
     public void buscarAluno(String matricula) {
         Aluno aluno = lista.search(matricula);
         if (aluno != null) {

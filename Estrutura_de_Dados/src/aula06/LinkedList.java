@@ -59,7 +59,6 @@ public class LinkedList {
     public void removeEnd() {
         if (isEmpty()) return;
 
-        // Caso especial: apenas 1 elemento na lista
         if (head.next == null) {
             head = null;
             total_elementos--;
@@ -70,7 +69,7 @@ public class LinkedList {
         while (temp.next.next != null) {
             temp = temp.next;
         }
-        temp.next = null; // Remove a referência do último
+        temp.next = null;
         total_elementos--;
     }
 
@@ -107,7 +106,6 @@ public class LinkedList {
     public boolean remove(String matricula) {
         if (isEmpty()) return false;
 
-        // Caso especial: se for o primeiro elemento
         if (head.aluno.getMatricula().equals(matricula)) {
             head = head.next;
             total_elementos--;
@@ -123,7 +121,7 @@ public class LinkedList {
             }
             temp = temp.next;
         }
-        return false; // Não encontrou
+        return false;
     }
 
     public void insertAt(int index, Aluno aluno) {
