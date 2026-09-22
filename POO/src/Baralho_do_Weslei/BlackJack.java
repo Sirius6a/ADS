@@ -108,7 +108,7 @@ public class BlackJack {
         Reiniciar();
     }
 
-    // Método auxiliar para evitar repetição de código na hora de mostrar o resultado
+    // Metodo auxiliar para evitar repetição de código na hora de mostrar o resultado
     void exibir_resultados_finais(int pontos_casa, int pontos_mao) {
         System.out.println("Pontuação final da casa: " + pontos_casa);
         System.out.println("Pontuação final na mão: " + pontos_mao);
@@ -126,7 +126,7 @@ public class BlackJack {
         Scanner s = new Scanner(System.in);
         System.out.print("\nQuer jogar novamente?(s/n): ");
         String rr = s.nextLine();
-        if (rr.equalsIgnoreCase("s")) {
+        if (rr.equals("s")) {
             new BlackJack();
         } else {
             System.out.println("Obrigado por jogar!");

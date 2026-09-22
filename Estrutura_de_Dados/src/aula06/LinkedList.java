@@ -1,26 +1,43 @@
 package aula06;
 
 public class LinkedList {
-    Node head;
+    private Node head;
+    private int total_elementos = 0;
 
-    private static class Node {
-        String data;
+    public static class Node {
+        private Aluno aluno;
         Node next;
-        public Node(String data) {
-            this.data = data;
+
+        public Node(Aluno aluno) {
+            this.aluno = aluno;
+            this.next = null;
+        }
+
+        public Aluno getAluno() {
+            return aluno;
         }
     }
 
-    public void insertFirst(String data) {
-        var newNode = new Node(data);
-        newNode.next = this.head;
-        this.head = newNode;
+    public boolean isEmpty() {
+        return head == null;
     }
 
-    public void insertEnd(String data) {
-        var newNode = new Node(data);
+    public int size() {
+        return total_elementos;
+    }
+
+    public void insertFirst(Aluno aluno) {
+        var newNode = new Node(aluno);
+        newNode.next = this.head;
+        this.head = newNode;
+        total_elementos++;
+    }
+
+    public void insertEnd(Aluno aluno) {
+        var newNode = new Node(aluno);
         if (head == null) {
             head = newNode;
+            total_elementos++;
             return;
         }
         var currentNode = head;
@@ -28,21 +45,40 @@ public class LinkedList {
             currentNode = currentNode.next;
         }
         currentNode.next = newNode;
+        total_elementos++;
     }
 
-    public void removeFirst() {
-        if (head != null) {
-            head = head.next;
-        }
+    public Aluno removeFirst() {
+        if (isEmpty()) return null;
+        Aluno removido = head.aluno;
+        head = head.next;
+        total_elementos--;
+        return removido;
     }
 
-    public boolean contains(String data) {
-        if (head == null) {
-            return false;
+    public void removeEnd() {
+        if (isEmpty()) return;
+
+        // Caso especial: apenas 1 elemento na lista
+        if (head.next == null) {
+            head = null;
+            total_elementos--;
+            return;
         }
+
+        var temp = head;
+        while (temp.next.next != null) {
+            temp = temp.next;
+        }
+        temp.next = null; // Remove a referência do último
+        total_elementos--;
+    }
+
+    public boolean contains(String matricula) {
+        if (isEmpty()) return false;
         var temp = head;
         while (temp != null) {
-            if (temp.data.equals(data)) {
+            if (temp.aluno.getMatricula().equals(matricula)) {
                 return true;
             }
             temp = temp.next;
@@ -50,11 +86,11 @@ public class LinkedList {
         return false;
     }
 
-    public Node get(String data) {
-        if (head == null) return null;
+    public Node get(String matricula) {
+        if (isEmpty()) return null;
         var temp = head;
         while (temp != null) {
-            if (temp.data.equals(data)) {
+            if (temp.aluno.getMatricula().equals(matricula)) {
                 return temp;
             }
             temp = temp.next;
@@ -62,21 +98,58 @@ public class LinkedList {
         return null;
     }
 
-    public void removeEnd() {
-        if (head == null) return;
-        var temp = head;
-        var currentNode = temp.next;
-        while (currentNode != null && currentNode.next != null) {
-            temp = currentNode;
-            currentNode = temp.next;
+    public Aluno search(String matricula) {
+        Node no = get(matricula);
+        return (no != null) ? no.aluno : null;
+    }
+
+    // Remove um aluno específico de qualquer lugar da fila pela matrícula
+    public boolean remove(String matricula) {
+        if (isEmpty()) return false;
+
+        // Caso especial: se for o primeiro elemento
+        if (head.aluno.getMatricula().equals(matricula)) {
+            head = head.next;
+            total_elementos--;
+            return true;
         }
-        temp.next = null;
+
+        var temp = head;
+        while (temp.next != null) {
+            if (temp.next.aluno.getMatricula().equals(matricula)) {
+                temp.next = temp.next.next; // "Pula" o nó removido
+                total_elementos--;
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false; // Não encontrou
+    }
+
+    public void insertAt(int index, Aluno aluno) {
+        if (index < 0 || index > total_elementos) {
+            throw new IndexOutOfBoundsException("Índice inválido");
+        }
+
+        if (index == 0) {
+            insertFirst(aluno);
+            return;
+        }
+
+        var newNode = new Node(aluno);
+        var temp = head;
+        for (int i = 0; i < index - 1; i++) {
+            temp = temp.next;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
+        total_elementos++;
     }
 
     public void print() {
         var temp = head;
         while (temp != null) {
-            System.out.println(temp.data);
+            System.out.println(temp.aluno);
             temp = temp.next;
         }
     }
@@ -84,7 +157,7 @@ public class LinkedList {
     void print(Node n){ // recebe um no, imprime ele e outros nos aos quais o primeiro aponta
         var temp = n;
         while (temp != null) {
-            System.out.println(temp.data);
+            System.out.println(temp.aluno);
             temp = temp.next;
         }
     }
