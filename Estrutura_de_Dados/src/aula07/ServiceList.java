@@ -15,7 +15,7 @@ public class ServiceList<T> {
     public void adicionarPorIndice(int indice, T elemento) {
         try {
             lista.insertAt(indice, elemento);
-            System.out.println("Elemento inserido na posição [" + indice + "].");
+            System.out.println("Elemento inserido na posição " + indice + ".");
         } catch (IndexOutOfBoundsException e) {
             System.out.println("Erro: Posição " + indice + " é inválida. (Tamanho atual: " + lista.size() + ").");
         }
@@ -44,9 +44,7 @@ public class ServiceList<T> {
         T encontrado = lista.search(elementoMolde);
         if (encontrado != null) {
             System.out.println("Elemento encontrado: ");
-            System.out.println("---------------------");
             System.out.println(encontrado);
-            System.out.println("---------------------");
         } else {
             System.out.println("Elemento não foi encontrado.");
         }

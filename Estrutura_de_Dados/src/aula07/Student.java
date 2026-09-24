@@ -12,10 +12,10 @@ public record Student(String name, String registration, int priority) {
 
     @Override
     public String toString() {
-        return "Nome: " + name + "\nMatrícula: " + registration + "\nPrioridade: " + priority;
+        return "Nome: " + name + "| Matrícula: " + registration + "| Prioridade: " + priority;
     }
 
-    // Mantendo o equals focado apenas na matrícula para as buscas funcionarem
+    // Mantendo o equals focado apenas na matrícula para as buscas funcionarem, fiz com ajuda da IA, ainda estou entendendo como funciona
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;

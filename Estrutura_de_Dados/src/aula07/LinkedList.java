@@ -142,7 +142,6 @@ public class LinkedList<T> {
     public void print() {
         var temp = head;
         while (temp != null) {
-            System.out.println("---------------------");
             System.out.println(temp.data);
             temp = temp.next;
         }
