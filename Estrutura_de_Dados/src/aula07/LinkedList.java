@@ -43,6 +43,26 @@ public class LinkedList<T> {
         total_elementos++;
     }
 
+    public void insertAt(int index, T data) {
+        if (index < 0 || index > total_elementos) {
+            throw new IndexOutOfBoundsException("Índice inválido");
+        }
+
+        if (index == 0) {
+            insertFirst(data);
+            return;
+        }
+
+        var newNode = new Node(data);
+        var temp = head;
+        for (int i = 0; i < index - 1; i++) {
+            temp = temp.next;
+        }
+        newNode.next = temp.next;
+        temp.next = newNode;
+        total_elementos++;
+    }
+
     public T removeFirst() {
         if (isEmpty()) return null;
         T removido = head.data;
@@ -68,7 +88,7 @@ public class LinkedList<T> {
         total_elementos--;
     }
 
-    // Remove um aluno específico de qualquer lugar da fila pela matrícula
+    // Remove um específico de qualquer lugar da fila
     public boolean remove(T data) {
         if (isEmpty()) return false;
 
@@ -114,26 +134,6 @@ public class LinkedList<T> {
             temp = temp.next;
         }
         return null;
-    }
-
-    public void insertAt(int index, T data) {
-        if (index < 0 || index > total_elementos) {
-            throw new IndexOutOfBoundsException("Índice inválido");
-        }
-
-        if (index == 0) {
-            insertFirst(data);
-            return;
-        }
-
-        var newNode = new Node(data);
-        var temp = head;
-        for (int i = 0; i < index - 1; i++) {
-            temp = temp.next;
-        }
-        newNode.next = temp.next;
-        temp.next = newNode;
-        total_elementos++;
     }
 
     public void print() {

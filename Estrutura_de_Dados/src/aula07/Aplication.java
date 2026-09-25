@@ -43,21 +43,21 @@ public class Aplication {
 
         fila.exibirTodos();
 
-        System.out.println("\n--- NOVA FILA ---\n");
-
-        ServiceList<Teacher> mesa = new ServiceList<>();
-
-        System.out.println("--- TESTE 1: MESA VAZIA ---");
-        mesa.exibirTodos();
-        mesa.removerPrimeiro();
-
-        System.out.println("\n--- TESTE 2: SENTANDO A MESA ---");
-        mesa.adicionarNoInicio(new Teacher("Thiago", "ED", "Presta muita atenção!"));
-        mesa.adicionarNoFim(new Teacher("Jefferson", "POO", "A verdade é essa!"));
-        mesa.adicionarNoInicio(new Teacher("Ale", "REDES", "Bora meu povo!"));
-
-        mesa.exibirTodos();
-
-        System.out.println("\n--- TESTE 3: ATENDIMENTO E REMOÇÃO ---");
+//        System.out.println("\n--- NOVA FILA ---\n");
+//
+//        ServiceList<Teacher> mesa = new ServiceList<>();
+//
+//        System.out.println("--- TESTE 1: MESA VAZIA ---");
+//        mesa.exibirTodos();
+//        mesa.removerPrimeiro();
+//
+//        System.out.println("\n--- TESTE 2: SENTANDO A MESA ---");
+//        mesa.adicionarNoInicio(new Teacher("Thiago", "ED", "Presta muita atenção!"));
+//        mesa.adicionarNoFim(new Teacher("Jefferson", "POO", "A verdade é essa!"));
+//        mesa.adicionarNoInicio(new Teacher("Ale", "REDES", "Bora meu povo!"));
+//
+//        mesa.exibirTodos();
+//
+//        System.out.println("\n--- TESTE 3: ATENDIMENTO E REMOÇÃO ---");
     }
 }

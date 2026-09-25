@@ -30,8 +30,8 @@ public class ServiceList<T> {
     }
 
     // Remove qualquer elemento baseado no .equals() do objeto passado
-    public void removerElemento(T elementoMolde) {
-        boolean removido = lista.remove(elementoMolde);
+    public void removerElemento(T elemento) {
+        boolean removido = lista.remove(elemento);
         if (removido) {
             System.out.println("Elemento removido com sucesso.");
         } else {
