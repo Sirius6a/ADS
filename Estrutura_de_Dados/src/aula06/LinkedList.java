@@ -73,35 +73,6 @@ public class LinkedList {
         total_elementos--;
     }
 
-    public boolean contains(String matricula) {
-        if (isEmpty()) return false;
-        var temp = head;
-        while (temp != null) {
-            if (temp.aluno.getMatricula().equals(matricula)) {
-                return true;
-            }
-            temp = temp.next;
-        }
-        return false;
-    }
-
-    public Node get(String matricula) {
-        if (isEmpty()) return null;
-        var temp = head;
-        while (temp != null) {
-            if (temp.aluno.getMatricula().equals(matricula)) {
-                return temp;
-            }
-            temp = temp.next;
-        }
-        return null;
-    }
-
-    public Aluno search(String matricula) {
-        Node no = get(matricula);
-        return (no != null) ? no.aluno : null;
-    }
-
     // Remove um aluno específico de qualquer lugar da fila pela matrícula
     public boolean remove(String matricula) {
         if (isEmpty()) return false;
@@ -122,6 +93,31 @@ public class LinkedList {
             temp = temp.next;
         }
         return false;
+    }
+
+    public boolean contains(String matricula) {
+        if (isEmpty()) return false;
+        var temp = head;
+        while (temp != null) {
+            if (temp.aluno.getMatricula().equals(matricula)) {
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false;
+    }
+
+    public Aluno search(String matricula) {
+        if (isEmpty()) return null;
+
+        var temp = head;
+        while (temp != null) {
+            if (temp.aluno.getMatricula().equals(matricula)) {
+                return temp.aluno;
+            }
+            temp = temp.next;
+        }
+        return null;
     }
 
     public void insertAt(int index, Aluno aluno) {

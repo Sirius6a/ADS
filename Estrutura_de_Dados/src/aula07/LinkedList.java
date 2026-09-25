@@ -68,35 +68,6 @@ public class LinkedList<T> {
         total_elementos--;
     }
 
-    public boolean contains(T data) {
-        if (isEmpty()) return false;
-        var temp = head;
-        while (temp != null) {
-            if (temp.data.equals(data)) {
-                return true;
-            }
-            temp = temp.next;
-        }
-        return false;
-    }
-
-    private Node get(T data) {
-        if (isEmpty()) return null;
-        var temp = head;
-        while (temp != null) {
-            if (temp.data.equals(data)) {
-                return temp;
-            }
-            temp = temp.next;
-        }
-        return null;
-    }
-
-    public T search(T data) {
-        Node no = get(data);
-        return (no != null) ? no.data : null;
-    }
-
     // Remove um aluno específico de qualquer lugar da fila pela matrícula
     public boolean remove(T data) {
         if (isEmpty()) return false;
@@ -117,6 +88,32 @@ public class LinkedList<T> {
             temp = temp.next;
         }
         return false;
+    }
+
+    public boolean contains(T data) {
+        if (isEmpty()) return false;
+        var temp = head;
+        while (temp != null) {
+            if (temp.data.equals(data)) {
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false;
+    }
+
+    // O metodo get e search foram juntados num só
+    public T search(T data) {
+        if (isEmpty()) return null;
+
+        var temp = head;
+        while (temp != null) {
+            if (temp.data.equals(data)) {
+                return temp.data;
+            }
+            temp = temp.next;
+        }
+        return null;
     }
 
     public void insertAt(int index, T data) {

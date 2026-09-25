@@ -40,8 +40,8 @@ public class ServiceList<T> {
     }
 
     // Busca qualquer elemento baseado no .equals() e o retorna
-    public T buscarElemento(T elementoMolde) {
-        T encontrado = lista.search(elementoMolde);
+    public T buscarElemento(T elemento) {
+        T encontrado = lista.search(elemento);
         if (encontrado != null) {
             System.out.println("Elemento encontrado: ");
             System.out.println(encontrado);

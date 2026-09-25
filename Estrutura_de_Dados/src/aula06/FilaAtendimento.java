@@ -11,6 +11,8 @@ public class FilaAtendimento {
         lista.insertFirst(aluno);
     }
 
+    // Ele tenta inserir o aluno pelo índice sugerido se não for possível
+    // ele substitui a mensagem de padrão pela personalizada
     public void adicionarAlunoPorIndice(int indice, Aluno aluno) {
         try {
             lista.insertAt(indice, aluno);

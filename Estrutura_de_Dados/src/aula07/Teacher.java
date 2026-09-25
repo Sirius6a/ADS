@@ -12,7 +12,7 @@ public record Teacher(String name, String classes, String catchphrase) {
     @Override
     public boolean equals(Object obj) {
         if (this == obj) return true;
-        if (obj instanceof Student other) {
+        if (obj instanceof Teacher other) {
             return Objects.equals(this.name, other.name());
         }
         return false;
