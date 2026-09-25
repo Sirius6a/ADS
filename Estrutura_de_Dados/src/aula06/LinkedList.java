@@ -35,16 +35,16 @@ public class LinkedList {
 
     public void insertEnd(Aluno aluno) {
         var newNode = new Node(aluno);
-        if (head == null) {
+        if (isEmpty()) {
             head = newNode;
             total_elementos++;
             return;
         }
-        var currentNode = head;
-        while (currentNode.next != null) {
-            currentNode = currentNode.next;
+        var temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
         }
-        currentNode.next = newNode;
+        temp.next = newNode;
         total_elementos++;
     }
 
@@ -56,22 +56,31 @@ public class LinkedList {
         return removido;
     }
 
-    public void removeEnd() {
-        if (isEmpty()) return;
+    public Aluno removeEnd() {
+        if (isEmpty()) return null;
 
+        // Caso 1: A lista só tem um elemento
         if (head.next == null) {
+            Aluno removido = head.aluno;
             head = null;
             total_elementos--;
-            return;
+            return removido;
         }
 
+        // Caso 2: A lista tem dois ou mais elementos
         var temp = head;
         while (temp.next.next != null) {
             temp = temp.next;
         }
-        temp.next = null;
+
+        // temp agora é o PENÚLTIMO elemento
+        Aluno removido = temp.next.aluno; // Salva o aluno do ÚLTIMO elemento
+        temp.next = null;                 // Desconecta o último elemento
+
         total_elementos--;
+        return removido;                  // Retorna o aluno correto
     }
+
 
     // Remove um aluno específico de qualquer lugar da fila pela matrícula
     public boolean remove(String matricula) {

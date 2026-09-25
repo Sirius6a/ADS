@@ -9,35 +9,47 @@ public class App {
         fila.atenderProximo();
 
         System.out.println("\n--- TESTE 2: INSERÇÃO ---");
-        fila.adicionarAlunoNoFim(new Aluno("Ana", "202401", 2));
-        fila.adicionarAlunoNoFim(new Aluno("Bruno", "202402", 1));
-        fila.adicionarAlunoNoInicio(new Aluno("Carla", "202403", 3));
+        fila.adicionarAlunoNoFim(new Aluno("Marliane", "000001", 2));
+        fila.adicionarAlunoNoFim(new Aluno("Antonio", "000002", 1));
+        fila.adicionarAlunoNoInicio(new Aluno("Rayane", "000003", 3));
+        fila.adicionarAlunoNoInicio(new Aluno("Mylane", "000004", 3));
+        fila.adicionarAlunoNoFim(new Aluno("Marcos", "000008", 3));
 
-        System.out.println("Fila atual:");
         fila.listarAlunos();
         System.out.println("Quantidade em fila: " + fila.quantidadeAlunos());
 
         System.out.println("\n--- TESTE 3: ATENDIMENTO E REMOÇÃO ---");
         fila.atenderProximo();
+        fila.atenderUltimo();
 
-        System.out.println("\nRemovendo Bruno por desistência...");
-        fila.removerAluno("202402");
+        System.out.println("\nRemovendo Antonio por desistência...");
+        fila.removerAluno("000002");
 
-        System.out.println("\nFila resultante:");
         fila.listarAlunos();
         System.out.println("Quantidade em fila: " + fila.quantidadeAlunos());
 
         System.out.println("\n--- TESTE 4: BUSCA ---");
-        fila.buscarAluno("202401");
-        fila.buscarAluno("999999");
+        fila.buscarAluno("000001");
+        fila.buscarAluno("000002");
 
         System.out.println("\n--- TESTE 5: INSERÇÃO POR ÍNDICE ---");
-        fila.adicionarAlunoPorIndice(0, new Aluno("Daniel", "202404", 1));
-        fila.adicionarAlunoPorIndice(1, new Aluno("Eduardo", "202405", 1));
-        fila.adicionarAlunoPorIndice(50, new Aluno("Invalido", "999999", 1));
+        fila.adicionarAlunoPorIndice(0, new Aluno("Gustavo", "000005", 1));
+        fila.adicionarAlunoPorIndice(1, new Aluno("Isakysom", "000006", 1));
+        fila.adicionarAlunoPorIndice(50, new Aluno("Weslei", "000007", 1));
 
-        System.out.println("\nFila após inserções por índice:");
         fila.listarAlunos();
+
+        System.out.println("\n--- TESTE 6: VERIFICANDO SE TÁ NA FILA ---");
+        Aluno alunoNaFila = new Aluno("Marliane", "000001", 2);
+        Aluno alunoForaDaFila = new Aluno("Pedro", "000009", 1);
+
+        System.out.println("Testando aluno que DEVE estar na fila:");
+        fila.TaNaFila(alunoNaFila);
+
+        System.out.println("\nTestando aluno que NÃO DEVE estar na fila:");
+        fila.TaNaFila(alunoForaDaFila);
+
+
 
     }
 }

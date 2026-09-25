@@ -18,10 +18,10 @@ public class FilaAtendimento {
             lista.insertAt(indice, aluno);
             System.out.println("Aluno " + aluno.getNome() + " inserido na posição [" + indice + "] da fila.");
         } catch (IndexOutOfBoundsException e) {
+            System.out.println("Aluno "+ aluno.getNome() + " inserir na posição [" + indice + "] da fila");
             System.out.println("Erro: Posição " + indice + " é inválida para a fila atual (Tamanho: " + lista.size() + ").");
         }
     }
-
 
     public void atenderProximo() {
         if (lista.isEmpty()) {
@@ -29,6 +29,17 @@ public class FilaAtendimento {
             return;
         }
         Aluno atendido = lista.removeFirst();
+        System.out.println("Atendendo o primeiro da fila");
+        System.out.println("Atendendo: " + atendido.getNome() + " (Matrícula: " + atendido.getMatricula() + ")");
+    }
+
+    public void atenderUltimo() {
+        if (lista.isEmpty()) {
+            System.out.println("Fila vazia! Nenhum aluno para atender.");
+            return;
+        }
+        Aluno atendido = lista.removeEnd();
+        System.out.println("Atendendo o ultimo da fila");
         System.out.println("Atendendo: " + atendido.getNome() + " (Matrícula: " + atendido.getMatricula() + ")");
     }
 
@@ -50,11 +61,24 @@ public class FilaAtendimento {
         }
     }
 
+    public void TaNaFila(Aluno aluno) {
+        if (lista.isEmpty()) {
+            System.out.println("A fila está vazia no momento.");
+            return;
+        }
+        if (lista.contains(aluno.getMatricula())) {
+            System.out.println("O aluno: " + aluno.getNome() + " está na fila.");
+        } else {
+            System.out.println("O aluno: " + aluno.getNome() + " não está na fila.");
+        }
+    }
+
     public void listarAlunos() {
         if (lista.isEmpty()) {
             System.out.println("A fila está vazia no momento.");
             return;
         }
+        System.out.println("Fila atual:");
         lista.print();
     }
 
